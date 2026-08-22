@@ -1,0 +1,24 @@
+<div class="mb-4 w-full max-w-sm">
+    <!-- 1. The Floating Label -->
+    <label class="block text-gray-700 text-sm font-bold mb-1">
+        {{ label }}
+    </label>
+
+    <!-- 2. Entry point for the parent's native input element -->
+    <!-- We bind a dynamic tailwind class to change borders to red if the input is broken -->
+    <div [ngClass]="{ 'is-invalid-input [&>input]:border-red-500 [&>input]:focus:ring-red-500': isInvalid() }">
+        <ng-content></ng-content>
+    </div>
+    <!-- <div
+        [ngClass]="{ 'is-invalid-input [&_input]:border-red-500 [&_input]:focus:border-red-500 [&_input]:focus:ring-red-500': isInvalid() }">
+        <ng-content></ng-content>
+    </div> -->
+
+
+    <!-- 3. Dynamic error message tracking -->
+    @if (isInvalid()) {
+    <div class="text-red-500 text-xs mt-1 font-medium animate-fade-in">
+        {{ label }} is required or formatted incorrectly.
+    </div>
+    }
+</div>

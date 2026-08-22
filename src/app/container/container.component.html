@@ -1,0 +1,85 @@
+<div class="min-h-screen bg-gray-50 p-10">
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">Dashboard Settings</h1>
+
+    <!-- The Content Projection Engine Wrapper -->
+    <app-tabs>
+
+        <app-tab title="Profile Information">
+            <h3 class="text-lg font-bold text-gray-700 mb-2">User Details</h3>
+            <p class="text-sm text-gray-600">Manage your public profile settings and configurations here.</p>
+        </app-tab>
+
+        <app-tab title="Security Credentials">
+            <h3 class="text-lg font-bold text-gray-700 mb-2">Password Update</h3>
+            <p class="text-sm text-gray-600">Ensure your workspace matches security baseline parameters.</p>
+        </app-tab>
+
+        <app-tab title="Billing Records">
+            <h3 class="text-lg font-bold text-gray-700 mb-2">Invoices</h3>
+            <p class="text-sm text-gray-600">Review platform payment distributions and receipt metadata.</p>
+        </app-tab>
+
+    </app-tabs>
+</div>
+
+
+<div class="min-h-screen bg-gray-100 p-10 flex flex-col items-center gap-8">
+    <h1 class="text-xl font-bold text-gray-800">Custom Trigger Dropdowns</h1>
+
+    <!-- SCENARIO A: Using a standard Tailwind Button as the trigger -->
+    <app-dropdown>
+        <button #dropdownTrigger dropdown
+            class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded shadow transition">
+            Options Menu ▾
+        </button>
+
+        <div class="menu-items flex flex-col gap-1">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Account Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Support Ticket</a>
+            <hr class="border-gray-200 my-1">
+            <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded">Delete Account</a>
+        </div>
+    </app-dropdown>
+
+
+    <!-- SCENARIO B: Using a Profile Avatar Image as the trigger -->
+    <app-dropdown>
+        <img #dropdownTrigger dropdown src="https://unsplash.com"
+            class="w-12 h-12 rounded-full ring-2 ring-pink-500 cursor-pointer hover:opacity-90 transition"
+            alt="User profile">
+
+        <div class="menu-items flex flex-col gap-1">
+            <div class="px-4 py-2 text-xs text-gray-400 font-semibold">Logged in as Sumit</div>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">View Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Sign Out</a>
+        </div>
+    </app-dropdown>
+</div>
+
+
+
+<div class="min-h-screen bg-gray-50 p-10 flex flex-col items-center">
+    <h1 class="text-xl font-bold text-gray-800 mb-6">Reusable Validation Wrapper</h1>
+
+    <!-- We wrap this in a standard FormGroup like your original Login Layout -->
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="bg-white p-6 rounded-md shadow-md w-full max-w-sm">
+
+        <!-- FIELD 1: Email -->
+        <app-form-field label="Email Address">
+            <!-- The input is projected inside the wrapper -->
+            <input type="email" formControlName="email" placeholder="Enter your email"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+        </app-form-field>
+
+        <!-- FIELD 2: Password -->
+        <app-form-field label="Password">
+            <input type="password" formControlName="password" placeholder="••••••••"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+        </app-form-field>
+
+        <button type="submit"
+            class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition mt-2">
+            Sign In
+        </button>
+    </form>
+</div>
