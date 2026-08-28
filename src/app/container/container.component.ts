@@ -4,16 +4,18 @@ import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { FormFieldComponent } from './form-field/form-field.component';
+import { AccordionComponent } from "./accordion/accordion.component";
 
 @Component({
   selector: 'app-container',
-  imports: [TabComponent, TabsComponent, DropdownComponent, FormFieldComponent, ReactiveFormsModule],
+  imports: [TabComponent, TabsComponent, DropdownComponent, FormFieldComponent, ReactiveFormsModule, AccordionComponent],
   templateUrl: './container.component.html',
   styleUrl: './container.component.css'
 })
 export class ContainerComponent {
 
   authForm!: FormGroup;
+  // open: boolean = false;
 
   ngOnInit() {
     this.authForm = new FormGroup({

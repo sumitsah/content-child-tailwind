@@ -16,7 +16,7 @@ export class DropdownComponent implements AfterContentInit, OnDestroy {
   @ContentChild('dropdownTrigger', { read: ElementRef }) triggerElement!: ElementRef;
 
   ngAfterContentInit() {
-    console.log(this.triggerElement)
+    // console.log(this.triggerElement)
     if (!this.triggerElement) {
       console.error('Error: app-dropdown requires a projected element with #dropdownTrigger!');
       return;
